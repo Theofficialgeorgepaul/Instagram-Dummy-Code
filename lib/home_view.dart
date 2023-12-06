@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/post_card.dart';
 import 'package:instagram_clone/stories_card.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({
+    super.key,
+  });
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
 
+class _HomeViewState extends State<HomeView> {
+  bool change = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,10 +21,10 @@ class HomeView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: ListView(
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Text(
                           "Instagram",
@@ -36,12 +43,12 @@ class HomeView extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.favorite_border_rounded,
-                          color: Colors.white,
+                          color: change ? Colors.white : Colors.red,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.share,
                           color: Colors.white,
                         )
